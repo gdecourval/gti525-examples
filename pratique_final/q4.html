@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pratique final</title>
+  <script>
+    async function onPageLoad() {
+      console.log("Page has loaded successfully.");
+      const caption_txt = await fetch(`https://corporatebs-generator.sameerkumar.website/`)
+      const caption_txt_json = await caption_txt.json();
+      const caption = document.getElementById("caption").textContent = caption_txt_json.phrase;
+      const img_src = await fetch(`https://randomfox.ca/floof/`)
+      const img_src_json = await img_src.json();
+      let img = document.getElementById("fox_img").src = img_src_json.image;
+    }
+  </script>
+</head>
+<body onload="onPageLoad()">
+  <div>
+    <h1 id="caption"></h1>
+    <img id="fox_img" src=""/>
+  </div>
+</body>
+</html>
